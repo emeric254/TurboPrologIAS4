@@ -1,0 +1,30 @@
+aime(paul,pizza)
+*paul n'aime pas les pizzas
+
+aime(bruno,pizza)
+*bruno aime les pizza
+
+aime(paul,X)
+*paul aime :
+    parapente
+    velo
+
+faim(bruno)
+*bruno a faim
+
+aime(X,Y),habite(X,dijon),chien(Y)
+*1 solution
+    X=bruno, Y=milou
+
+plusage(X,bruno)
+*No solution
+    (personne n'a d'age sauf bruno)
+
+aime(X,Y)
+*7 Solutions
+    X=bruno, Y=pizza
+    X=pierre, Y=velo
+    X=paul, Y=parapente
+    X=paul, Y=velo
+    X=bruno, Y=milou
+    X=bruno, Y=informaticien
