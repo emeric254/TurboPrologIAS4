@@ -35,4 +35,12 @@ CLAUSES
 	estAncetre(jfrancois,joachim).
 	estAncetre(jfrancois,julian).
 	
+	estAncetre(X,X).
+	estAncetre(X,Y):-estAncetre(Y,TEMP),estAncetre(TEMP,X).
 GOAL
+	Write("Saisir l'ancentre :"),
+	READLN(X),
+	Write("Saisir l'autre :"),
+	READLN(Y),
+	Write("Resultat :"),
+	estAncetre(X,Y).
