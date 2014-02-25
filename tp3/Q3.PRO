@@ -2,7 +2,7 @@ PREDICATES
 	estAncetre(symbol,symbol)
 CLAUSES
 	estAncetre(leon,jean).
-	estAnceter(leon,francois).
+	estAncetre(leon,francois).
 	estAncetre(leon,marceline).
 	
 	estAncetre(mariel,jean).
@@ -35,12 +35,10 @@ CLAUSES
 	estAncetre(jfrancois,joachim).
 	estAncetre(jfrancois,julian).
 	
-	estAncetre(X,X).
-	estAncetre(X,Y):-estAncetre(Y,TEMP),estAncetre(TEMP,X).
+	estAncetre(X,Y):-estAncetre(TEMP,Y),estAncetre(X,TEMP).
 GOAL
 	Write("Saisir l'ancentre :"),
 	READLN(X),
 	Write("Saisir l'autre :"),
 	READLN(Y),
-	Write("Resultat :"),
-	estAncetre(X,Y).
+	estAncetre(X,Y),Write(X," est bien un ancetre de ",Y).
