@@ -36,6 +36,7 @@ CLAUSES
 	estAncetre(jfrancois,julian).
 	
 	estAncetre(X,Y):-estAncetre(TEMP,Y),estAncetre(X,TEMP).
+	estAncetre(X,Y):-estAncetre(TEMP,Y),estAncetre(TEMP2,TEMP),estAncetre(X,TEMP2).
 GOAL
 	Write("Saisir l'ancentre :"),
 	READLN(X),
