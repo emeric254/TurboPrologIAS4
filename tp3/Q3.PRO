@@ -1,45 +1,51 @@
 PREDICATES
-	estAncetre(symbol,symbol)
+    pasAncetre(symbol)
+    estAncetre(symbol,symbol)
+
 CLAUSES
-	estAncetre(leon,jean).
-	estAncetre(leon,francois).
-	estAncetre(leon,marceline).
-	
-	estAncetre(mariel,jean).
-	estAncetre(mariel,francois).
-	estAncetre(mariel,marceline).
-	
-	estAncetre(jean,bernard).
-	estAncetre(jean,didier).
-	estAncetre(jean,anette).
-	
-	estAncetre(bernard,anais).
-	estAncetre(bernard,paul).
+    pasAncetre(leon).
+    pasAncetre(mariel).
 
-	estAncetre(francois,mfrancois).
-	estAncetre(francois,thierry).
+    estAncetre(leon,jean).
+    estAncetre(leon,francois).
+    estAncetre(leon,marceline).
 
-	estAncetre(mfrancois,noe).
-	estAncetre(mfrancois,lena).
+    estAncetre(mariel,jean).
+    estAncetre(mariel,francois).
+    estAncetre(mariel,marceline).
 
-	estAncetre(thierry,marie).
-	estAncetre(thierry,pauline).
+    estAncetre(jean,bernard).
+    estAncetre(jean,didier).
+    estAncetre(jean,anette).
 
-	estAncetre(marceline,jfrancois).
-	estAncetre(marceline,nathalie).
+    estAncetre(bernard,anais).
+    estAncetre(bernard,paul).
 
-	estAncetre(nathalie,marcia).
-	estAncetre(nathalie,remi).
-	estAncetre(nathalie,felix).
+    estAncetre(francois,mfrancois).
+    estAncetre(francois,thierry).
 
-	estAncetre(jfrancois,joachim).
-	estAncetre(jfrancois,julian).
-	
-	estAncetre(X,Y):-estAncetre(TEMP,Y),estAncetre(X,TEMP).
-	estAncetre(X,Y):-estAncetre(TEMP,Y),estAncetre(TEMP2,TEMP),estAncetre(X,TEMP2).
+    estAncetre(mfrancois,noe).
+    estAncetre(mfrancois,lena).
+
+    estAncetre(thierry,marie).
+    estAncetre(thierry,pauline).
+
+    estAncetre(marceline,jfrancois).
+    estAncetre(marceline,nathalie).
+
+    estAncetre(nathalie,marcia).
+    estAncetre(nathalie,remi).
+    estAncetre(nathalie,felix).
+
+    estAncetre(jfrancois,joachim).
+    estAncetre(jfrancois,julian).
+
+    estAncetre(_,Y):-pasAncetre(Y),Write("Aucune parentee"),FAIL.
+    estAncetre(X,Y):-not(pasAncetre(Y)),estAncetre(TEMP,Y),estAncetre(X,TEMP).
+
 GOAL
-	Write("Saisir l'ancentre :"),
-	READLN(X),
-	Write("Saisir l'autre :"),
-	READLN(Y),
-	estAncetre(X,Y),Write(X," est bien un ancetre de ",Y).
+    Write("Saisir l'ancentre :"),
+    READLN(X),
+    Write("Saisir l'autre :"),
+    READLN(Y),
+    estAncetre(X,Y),Write(X," est bien un ancetre de ",Y).
