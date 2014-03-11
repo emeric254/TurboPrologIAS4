@@ -1,10 +1,23 @@
 PREDICATES
-    pasAncetre(symbol)
+    pasParent(symbol)
+    pasFils(symbol)
     estAncetre(symbol,symbol)
 
 CLAUSES
-    pasAncetre(leon).
-    pasAncetre(mariel).
+    pasParent(leon).
+    pasParent(mariel).
+
+    pasFils(anais).
+    pasFils(paul).
+    pasFils(noe).
+    pasFils(lena).
+    pasFils(marie).
+    pasFils(pauline).
+    pasFils(marcia).
+    pasFils(remi).
+    pasFils(felix).
+    pasFils(joachim).
+    pasFils(julian).
 
     estAncetre(leon,jean).
     estAncetre(leon,francois).
@@ -40,7 +53,8 @@ CLAUSES
     estAncetre(jfrancois,joachim).
     estAncetre(jfrancois,julian).
 
-    estAncetre(_,Y):-pasAncetre(Y),Write("Aucune parentee"),FAIL.
+    estAncetre(X,_):-pasFils(Y),Write("Aucune parentee"),FAIL.
+    estAncetre(_,Y):-pasParent(Y),Write("Aucune parentee"),FAIL.
     estAncetre(X,Y):-not(pasAncetre(Y)),estAncetre(TEMP,Y),estAncetre(X,TEMP).
 
 GOAL
