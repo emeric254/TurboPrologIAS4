@@ -33,7 +33,7 @@ CLAUSES
     concatene([X|Q1], L2, [X|L3]) :- concatene(Q1, L2, L3).
     concatene([X|Q1], L2, LR) :- concatene(Q1, L2, L3), LR=[X|L3].
 Goal
-    listeAvion(L1),listeTrain(L2),concatene(L1,L2,X),affichage(X).
+    listeAvion(L1),listeTrain(L2),concatene(L1,L2,X),longeur(X,Y),affichage(Y).
 
 
 
