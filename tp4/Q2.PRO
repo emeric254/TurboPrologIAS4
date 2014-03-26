@@ -9,6 +9,7 @@ PREDICATES
     listeTrain(TlisteVille)
 
     affichage(TlisteVille)
+    longueur(TlisteVille,integer)
 CLAUSES
     train(bruxelle,1000).
     train(barcelone,500).
@@ -23,9 +24,16 @@ CLAUSES
     affichage([T|Q]):- write(T, " "), affichage(Q).
     listeAvion(TlisteVille):- FINDALL(V,avion(V,_),TlisteVille).
     listeTrain(TlisteVille):- FINDALL(V,train(V,_),TlisteVille).
+
+    longueur([], 0).
+    longueur([_|Q], Long):- longueur(Q, LQ), Long = LQ + 1.
 Goal
-    listeAvion(L),write("\navion: "),affichage(L).
-    listeTrain(L),write("\ntrain: "),affichage(L).
+    listeAvion(L),longueur(L,X),write("Nombre Avion : ",X).
+    listeTrain(L),longueur(L,X),write("Nombre Train : ",X).
+
+
+
+
 
 
 
